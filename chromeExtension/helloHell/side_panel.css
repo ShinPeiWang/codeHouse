@@ -1,0 +1,300 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* 默认浅色主题变量 */
+    --background-color: #ffffff;
+    --top-header-color: rgba(255, 255, 255, .8);
+    --text-color: #4B4B4B;
+    --header-color: #4B4B4B;
+    --button-border-color: #CCC;
+    --button-bg-color: #f8feff;
+    --button-hover-bg-color: #DDFCFF;
+    --tab-bg-color: #f0f0f0;
+    --tab-hover-bg-color: #e0e0e0;
+    --close-button-color: #4B4B4B;
+    --favicon-size: 18px;
+
+    --body-padding: 10px;
+    --header-height: 50px;
+}
+
+/* 深色主题的变量 */
+.dark-mode {
+    --background-color: #282a36;
+    --top-header-color: rgb(40, 42, 54, .8);
+    --text-color: #f8f8f2;
+    --header-color: #f8f8f2;
+    --button-border-color: #6272a4;
+    --button-bg-color: #44475a;
+    --button-hover-bg-color: #6272a4;
+    --tab-bg-color: #44475a;
+    --tab-hover-bg-color: #6272a4;
+    --close-button-color: #ff5555;
+}
+
+/* 应用CSS变量 */
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: var(--header-height);
+    border-bottom: 1px solid var(--tab-bg-color);
+    z-index: 10;
+    background-color: var(--top-header-color);
+}
+
+.headerContainer {
+    display: flex;
+    padding: var(--body-padding);
+}
+
+.container {
+    padding: var(--body-padding);
+}
+
+.titleWrap {
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+#tabsWrap {
+    padding-top: var(--header-height);
+}
+
+.windowContainer {
+    padding: 10px 5px;
+}
+
+.windowHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: var(--header-color);
+}
+
+.closeWindowBtn {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid var(--button-border-color);
+    border-radius: 8px;
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+}
+
+.closeWindowBtn:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+ul.drag-near-bottom li:last-child::after {
+    position: absolute;
+    left: -15px;
+    bottom: -10px;
+    content: " ► ";
+    color: red;
+    display: block;
+}
+
+.drag-over::before {
+    position: absolute;
+    left: -15px;
+    top: -10px;
+    content: " ► ";
+    color: red;
+    display: block;
+}
+
+ul.ulContainer {
+    list-style-type: none;
+    padding-bottom: 20px;
+}
+
+li {
+    position: relative;
+    margin: 5px 0;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.tabItem {
+    position: relative;
+    padding: 5px 10px 5px 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--tab-bg-color);
+}
+
+.tabItem:hover {
+    background-color: var(--tab-hover-bg-color);
+}
+
+.tab-title {
+    flex-grow: 1;
+}
+
+.close-button {
+    cursor: pointer;
+    color: var(--close-button-color);
+}
+
+.favicon-img {
+    width: var(--favicon-size);
+    height: var(--favicon-size);
+    margin-right: 10px;
+}
+
+/* search input */
+.searchInput {
+    width: 100%;
+    height: 30px;
+    padding-left: 10px;
+    outline: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-color: #F3F3F3;
+    transition: all 0.5s;
+}
+
+.searchInput:hover,
+.searchInput:focus {
+    border: 1px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 5px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+/* 切换按钮样式 */
+.btn-container {
+    display: flex;
+    vertical-align: middle;
+    text-align: center;
+    padding-right: 10px;
+}
+
+.btn-container>.component {
+    display: flex;
+}
+
+.btn-container i {
+    display: inline-block;
+    position: relative;
+    top: -9px;
+}
+
+label {
+    font-size: 13px;
+    color: #424242;
+    font-weight: 500;
+}
+
+.btn-color-mode-switch {
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+    padding: 0 3px;
+}
+
+.btn-color-mode-switch>label.btn-color-mode-switch-inner {
+    margin: 0px;
+    width: 140px;
+    height: 30px;
+    line-height: 30px;
+    background: #E0E0E0;
+    border-radius: 26px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+    display: block;
+}
+
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
+    content: attr(data-on);
+    position: absolute;
+    font-size: 12px;
+    font-weight: 500;
+    /* top: 7px; */
+    right: 20px;
+}
+
+.btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
+    content: attr(data-off);
+    width: 70px;
+    height: 16px;
+    line-height: 16px;
+    background: #fff;
+    border-radius: 26px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0px 0px 6px -2px #111;
+    padding: 5px 0px;
+}
+
+.btn-color-mode-switch>.alert {
+    display: none;
+    background: #FF9800;
+    border: none;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"] {
+    cursor: pointer;
+    width: 50px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    margin: 0px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
+    background: #151515;
+    color: #fff;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
+    content: attr(data-on);
+    left: 68px;
+    background: #3c3c3c;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
+    content: attr(data-off);
+    right: auto;
+    left: 20px;
+}
+
+.btn-color-mode-switch input[type="checkbox"]:checked~.alert {
+    display: block;
+}
+
+.dark-preview {
+    background: #0d0d0d;
+}
+
+.white-preview {
+    background: #fff;
+}

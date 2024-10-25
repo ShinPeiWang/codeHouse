@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "Batch MP3 Downloader",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "downloads",
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "action": {
+        "default_icon": "icon.png",
+        "default_title": "批次下載大人學線上課程資源",
+        "default_popup": "popup.html"
+    }
+}
